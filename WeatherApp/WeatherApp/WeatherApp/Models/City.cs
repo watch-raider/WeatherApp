@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
@@ -7,6 +8,7 @@ namespace WeatherApp.Models
 {
     public class City : INotifyPropertyChanged
     {
+        [PrimaryKey]
         public int Id { get; set; }
         string name;
         public string Name 
@@ -79,7 +81,7 @@ namespace WeatherApp.Models
             }
         }
         public string Icon { get; set; }
-        public Color IconColor { get; set; }
+        public string IconColor { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged(string name) =>

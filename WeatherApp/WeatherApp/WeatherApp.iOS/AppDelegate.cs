@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using WeatherApp.iOS.Helpers;
 
 namespace WeatherApp.iOS
 {
@@ -24,7 +25,9 @@ namespace WeatherApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.Forms.FormsMaterial.Init();
-            LoadApplication(new App());
+            // creating new file path to hold SQLite data
+            string dbPath = FileAccessHelper.GetLocalFilePath("driverApp.db3");
+            LoadApplication(new App(dbPath));
 
             return base.FinishedLaunching(app, options);
         }

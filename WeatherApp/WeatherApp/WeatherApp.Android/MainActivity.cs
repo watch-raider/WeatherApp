@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using WeatherApp.Droid.Helpers;
 
 namespace WeatherApp.Droid
 {
@@ -17,8 +18,10 @@ namespace WeatherApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            string dbPath = FileAccessHelper.GetLocalFilePath("collection.db3");
+            LoadApplication(new App(dbPath));
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

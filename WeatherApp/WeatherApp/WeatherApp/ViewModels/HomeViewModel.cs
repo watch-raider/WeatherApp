@@ -30,7 +30,7 @@ namespace WeatherApp.ViewModels
 
                 City city = new City
                 {
-                    Id = 1,
+                    Id = i,
                     Name = WeatherRepo.cities_names[i],
                     Description = response.Weather[0].Description,
                     Temperature = $"{response.Main.Temp}°",

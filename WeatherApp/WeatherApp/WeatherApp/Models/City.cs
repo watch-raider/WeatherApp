@@ -80,8 +80,45 @@ namespace WeatherApp.Models
                 OnPropertyChanged(nameof(Time));
             }
         }
-        public string Icon { get; set; }
-        public string IconColor { get; set; }
+        public string State { get; set; }
+        public string Icon 
+        {
+            get
+            {
+                switch (this.State)
+                {
+                    case "Clouds":
+                        return "\uf0c2";
+                    case "Rain":
+                        return "\uf740";
+                    case "Drizzle":
+                        return "\uf73d";
+                    case "Thunderstorm":
+                        return "\uf76c";
+                    default:
+                        return "\uf185";
+                }
+            }
+        }
+        public string IconColor 
+        {
+            get
+            {
+                switch (this.State)
+                {
+                    case "Clouds":
+                        return "#808080";
+                    case "Rain":
+                        return "#000000";
+                    case "Drizzle":
+                        return "#808080";
+                    case "Thunderstorm":
+                        return "#000000";
+                    default:
+                        return "#ffbf00";
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged(string name) =>

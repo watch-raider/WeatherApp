@@ -37,7 +37,8 @@ namespace WeatherApp.ViewModels
                     FeelsLike = $"Feels like {response.Main.Feels_like}°",
                     Wind = $"Wind EN {response.Wind.Speed} m/s",
                     Humidity = $"Humidity {response.Main.Humidity}%",
-                    Time = DateTime.Now.ToString("HH:mm")
+                    Time = DateTime.Now.ToString("HH:mm"),
+                    State = response.Weather[0].Main
                 };
 
                 cities.Add(city);

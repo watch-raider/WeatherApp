@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WeatherApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Details : ContentPage
+    public partial class LoadingPage : ContentPage
     {
-        public Details()
+        public LoadingPage()
         {
             InitializeComponent();
         }

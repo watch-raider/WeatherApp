@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:data="clr-namespace:WeatherApp.Models"
+             xmlns:viewmodels="clr-namespace:WeatherApp.ViewModels"
+             x:DataType="viewmodels:DetailsViewModel"
+             x:Class="WeatherApp.Views.DetailsPage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="addressDetails" RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+
+                <Label x:Name="NameLbl" Grid.Row="0" Grid.Column="0" 
+                           Text="{Binding City.Name}"/>
+                <Label x:Name="DescriptionLbl" Grid.Row="0" Grid.Column="1" 
+                           Text="{Binding City.Description}"/>
+                
+                <Label x:Name="TemperatureLbl" Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding City.Temperature}"/>
+                <Label x:Name="FeelsLikeLbl" Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding City.FeelsLike}"/>
+                
+                <Label x:Name="WindLbl" Grid.Row="2" Grid.Column="0" 
+                       Text="{Binding City.Wind}"/>
+                <Label x:Name="HumidityLbl" Grid.Row="2" Grid.Column="1" 
+                       Text="{Binding City.Humidity}"/>
+                
+                <Label x:Name="TimeLbl" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Text="{Binding City.Time}"/>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

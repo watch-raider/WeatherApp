@@ -18,20 +18,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
+    <Compile Update="Views\DetailsPage.xaml.cs">
+      <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LocationsPage.xaml.cs">
+      <DependentUpon>LocationsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Views\Details.xaml">
+    <EmbeddedResource Update="Views\DetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Locations.xaml">
+    <EmbeddedResource Update="Views\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LocationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WeatherApp.ViewModels"
+             xmlns:data="clr-namespace:WeatherApp.Models"
+             x:DataType="viewmodels:LocationsViewModel"
+             x:Class="WeatherApp.Views.LocationsPage"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="CityList"
+            ItemsSource="{Binding Cities}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:City">
+                        <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

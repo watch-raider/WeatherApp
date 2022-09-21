@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace WeatherApp
+namespace WeatherApp.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class Home : ContentPage
     {
-        public MainPage()
+        public Home()
         {
             InitializeComponent();
         }

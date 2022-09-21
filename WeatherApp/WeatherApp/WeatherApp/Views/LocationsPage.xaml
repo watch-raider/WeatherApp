@@ -8,7 +8,7 @@
              Visual="Material">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="CityList"
+            <ListView x:Name="CityList" IsPullToRefreshEnabled="True"
             ItemsSource="{Binding Cities}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:City">

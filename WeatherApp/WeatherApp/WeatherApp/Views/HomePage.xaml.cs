@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Models;
 using WeatherApp.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace WeatherApp.Views
@@ -27,7 +28,16 @@ namespace WeatherApp.Views
         {
             await Navigation.PushAsync(new LoadingPage());
 
-            List<City> cities = await hvm.GetAllCities();
+            List<City> cities = new List<City>();
+
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                cities = await hvm.GetAllCities();
+            }
+            else
+            {
+                await DisplayAlert("Network Error", "Weather information may not be up to date", "OK");
+            };
 
             await Task.Delay(100);
             await Navigation.PopAsync();

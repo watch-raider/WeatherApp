@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Models;
 using WeatherApp.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,8 +23,23 @@ namespace WeatherApp.Views
             lvm = new LocationsViewModel(cities);
 
             CityList.ItemSelected += CityList_ItemSelected;
+            CityList.Refreshing += CityList_Refreshing;
 
             this.BindingContext = lvm;
+        }
+
+        private async void CityList_Refreshing(object sender, EventArgs e)
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await lvm.GetAllCities();
+            }
+            else
+            {
+                await DisplayAlert("Network Error", "Unable to refresh list due to no internet connection. Please make sure you are connected and try again", "OK");
+            }
+
+            CityList.IsRefreshing = false;
         }
 
         private async void CityList_ItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -13,6 +13,13 @@ namespace WeatherApp.Views
         public Home()
         {
             InitializeComponent();
+
+            WeatherBtn.Clicked += WeatherBtn_Clicked;
+        }
+
+        private async void WeatherBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Locations());
         }
     }
 }

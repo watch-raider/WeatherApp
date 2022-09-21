@@ -146,4 +146,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\background_weather.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\walking_dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\woman_raining.png" />
+  </ItemGroup>
 </Project>

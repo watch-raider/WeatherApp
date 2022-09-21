@@ -20,6 +20,18 @@ namespace WeatherApp.Views
 
             dvm = new DetailsViewModel(city);
 
+            switch (city.State)
+            {
+                case "Rain":
+                case "Drizzle":
+                case "Thunderstorm":
+                    WeatherImg.Source = "woman_raining.png";;
+                    break;
+                default:
+                    WeatherImg.Source = "walking_dog.png";
+                    break;
+            }
+
             this.BindingContext = dvm;
         }
     }

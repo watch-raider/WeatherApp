@@ -52,7 +52,7 @@ namespace WeatherApp.ViewModels
                     Description = response.Weather[0].Description,
                     Temperature = $"{response.Main.Temp}°",
                     FeelsLike = $"Feels like {response.Main.Feels_like}°",
-                    Wind = $"Wind EN {response.Wind.Speed} m/s",
+                    Wind = $"Wind {response.Wind.Speed} m/s",
                     Humidity = $"Humidity {response.Main.Humidity}%",
                     Time = DateTime.Now.ToString("HH:mm")
                 };

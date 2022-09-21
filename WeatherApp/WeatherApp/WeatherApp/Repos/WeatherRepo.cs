@@ -22,8 +22,8 @@ namespace WeatherApp.Repos
         string open_weather_base_address = "api.openweathermap.org/data/2.5/weather";
         string protocol = "https://";
 
-        public static string[] cities_names = { "Opatija", "London", "Novalja", "Pula", "Cres" };
-        public static string[] countries = { "Croatia", "UK", "Croatia", "Croatia", "Croatia" };
+        public static string[] cities_names = { "Opatija", "London", "Novalja", "Pula", "Cres", "Istanbul", "Milan" };
+        public static string[] countries = { "Croatia", "UK", "Croatia", "Croatia", "Croatia", "Turkey", "Italy" };
 
         public WeatherRepo()
         {

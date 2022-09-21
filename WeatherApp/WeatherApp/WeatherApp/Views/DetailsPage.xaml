@@ -5,29 +5,37 @@
              xmlns:viewmodels="clr-namespace:WeatherApp.ViewModels"
              x:DataType="viewmodels:DetailsViewModel"
              x:Class="WeatherApp.Views.DetailsPage"
-             Visual="Material">
+             Visual="Material"
+             Title="{Binding City.Name}"
+             BackgroundColor="#92a8d1">
     <ContentPage.Content>
         <StackLayout>
-            <Grid x:Name="addressDetails" RowDefinitions="*,*,*,*" ColumnDefinitions="*,*">
+            <Image x:Name="WeatherImg" />
+            <Grid x:Name="addressDetails" RowDefinitions="*,*,*,*" ColumnDefinitions="Auto,*,Auto,*"
+                  Padding="10,2,10,2" VerticalOptions="EndAndExpand">
 
-                <Label x:Name="NameLbl" Grid.Row="0" Grid.Column="0" 
-                           Text="{Binding City.Name}"/>
-                <Label x:Name="DescriptionLbl" Grid.Row="0" Grid.Column="1" 
-                           Text="{Binding City.Description}"/>
+                <Label x:Name="WeatherIconLbl" Text="{Binding City.Icon}" TextColor="{Binding City.IconColor}" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="0" Grid.Row="0" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="DescriptionLbl" Grid.Row="0" Grid.Column="1" Text="{Binding City.Description}"/>
+                <Label x:Name="TimeIconLbl" Text="&#xf017;" TextColor="#000000" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="2" Grid.Row="0" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="TimeLbl" Grid.Row="0" Grid.Column="3" Text="{Binding City.Time}"/>
+
+                <Label x:Name="TempIconLbl" Text="&#xf769;" TextColor="#ffbf00" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="0" Grid.Row="1" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="TemperatureLbl" Grid.Row="1" Grid.Column="1" Text="{Binding City.Temperature}"/>
+                <Label x:Name="FeelsLikeIconLbl" Text="&#xf76b;" TextColor="#ffbf00" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="2" Grid.Row="1" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="FeelsLikeLbl" Grid.Row="1" Grid.Column="3" Text="{Binding City.FeelsLike}"/>
+
+                <Label x:Name="WindIconLbl" Text="&#xf72e;" TextColor="#0080ff" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="WindLbl" Grid.Row="2" Grid.Column="1" Text="{Binding City.Wind}"/>
+                <Label x:Name="HumidityIconLbl" Text="&#xf773;" TextColor="#668099" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="Center"
+                                       Grid.Column="2" Grid.Row="2" HorizontalOptions="Fill" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="HumidityLbl" Grid.Row="2" Grid.Column="3" Text="{Binding City.Humidity}"/>
                 
-                <Label x:Name="TemperatureLbl" Grid.Row="1" Grid.Column="0" 
-                       Text="{Binding City.Temperature}"/>
-                <Label x:Name="FeelsLikeLbl" Grid.Row="1" Grid.Column="1" 
-                       Text="{Binding City.FeelsLike}"/>
-                
-                <Label x:Name="WindLbl" Grid.Row="2" Grid.Column="0" 
-                       Text="{Binding City.Wind}"/>
-                <Label x:Name="HumidityLbl" Grid.Row="2" Grid.Column="1" 
-                       Text="{Binding City.Humidity}"/>
-                
-                <Label x:Name="TimeLbl" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
-                       Text="{Binding City.Time}"/>
-                
+
             </Grid>
         </StackLayout>
     </ContentPage.Content>

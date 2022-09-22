@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WeatherApp.Helpers;
 using WeatherApp.Interfaces;
 using WeatherApp.Models;
 
@@ -18,7 +19,7 @@ namespace WeatherApp.Repos
             Metric,
             Imperial
         }
-        string open_weather_api_key = "44b78cb9a9d1acae01df591a6a27f28c";
+        string open_weather_api_key = Secrets.OpenWeatherApiKey;
         string open_weather_base_address = "api.openweathermap.org/data/2.5/weather";
         string protocol = "https://";
 

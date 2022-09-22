@@ -27,13 +27,49 @@ namespace WeatherApp.Views
 
         private async void WeatherBtn_Clicked(object sender, EventArgs e)
         {
+            string open_weather_api_key;
+            try
+            {
+                open_weather_api_key = await SecureStorage.GetAsync("key");
+            }
+            catch (Exception ex)
+            {
+                // Possible that device doesn't support secure storage on device.
+                open_weather_api_key = string.Empty;
+            }
+
+            if (string.IsNullOrEmpty(open_weather_api_key))
+            {
+                string key = await DisplayPromptAsync("OpenWeather", "Enter API key");
+                try
+                {
+                    await SecureStorage.SetAsync("key", key);
+                }
+                catch (Exception ex)
+                {
+                    // Possible that device doesn't support secure storage on device.
+                    await DisplayAlert("Error", ex.Message, "OK");
+                    return;
+                }
+            }
+
             await Navigation.PushAsync(new LoadingPage());
 
             List<City> cities = new List<City>();
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                cities = await hvm.GetAllCities();
+                try
+                {
+                    cities = await hvm.GetAllCities();
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", "Please check API key is correct", "OK");
+                    SecureStorage.RemoveAll();
+                    await Navigation.PopAsync();
+                    return;
+                }
                 await CityRepo.instance.DeleteAll();
                 await CityRepo.instance.AddAll(cities);
             }

@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using WeatherApp.Interfaces;
 using WeatherApp.Models;
+using Xamarin.Essentials;
 
 namespace WeatherApp.Repos
 {
@@ -18,7 +19,7 @@ namespace WeatherApp.Repos
             Metric,
             Imperial
         }
-        string open_weather_api_key = "44b78cb9a9d1acae01df591a6a27f28c";
+        string open_weather_api_key;
         string open_weather_base_address = "api.openweathermap.org/data/2.5/weather";
         string protocol = "https://";
 
@@ -32,6 +33,15 @@ namespace WeatherApp.Repos
 
         public async Task<OpenWeatherResponse> GetWeatherByLocation(string city, string country, Unit metric)
         {
+            try
+            {
+                open_weather_api_key = await SecureStorage.GetAsync("key");
+            }
+            catch (Exception ex)
+            {
+                // Possible that device doesn't support secure storage on device.
+            }
+
             string parameters = $"?q={city},{country}&units={metric}&APPID={open_weather_api_key}";
 
             var client = new HttpClient();

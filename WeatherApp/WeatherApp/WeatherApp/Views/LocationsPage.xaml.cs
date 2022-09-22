@@ -52,6 +52,7 @@ namespace WeatherApp.Views
 
             await Task.Delay(100);
             await Navigation.PushAsync(new DetailsPage(city));
+            CityList.SelectedItem = null;
         }
     }
 }
